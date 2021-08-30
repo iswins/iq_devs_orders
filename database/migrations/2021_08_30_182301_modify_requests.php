@@ -13,7 +13,7 @@ class ModifyRequests extends Migration
      */
     public function up()
     {
-        Schema::create('requests', function (Blueprint $table) {
+        Schema::table('requests', function (Blueprint $table) {
             $table->float('amount', 18, 2);
         });
 
