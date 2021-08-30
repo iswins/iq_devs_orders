@@ -36,5 +36,8 @@ COPY ./supervisor.conf /etc/supervisor/conf.d/supervisor.conf
 COPY ./run_queue.sh /usr/bin/run_queue.sh
 RUN chmod +x /usr/bin/run_queue.sh
 
+RUN usermod -u 1000 www-data
+RUN groupmod -g 1000 www-data
+
 EXPOSE 9000
 CMD ["php-fpm"]
