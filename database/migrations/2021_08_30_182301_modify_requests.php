@@ -15,7 +15,6 @@ class ModifyRequests extends Migration
     {
         Schema::table('requests', function (Blueprint $table) {
             $table->dropColumn('amount');
-            $table->float('amount', 18, 2);
         });
 
         Schema::table('requests', function (Blueprint $table) {
