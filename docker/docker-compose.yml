@@ -13,6 +13,8 @@ services:
         env_file:
             - ../.env
         working_dir: /var/www
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
         volumes:
             - ../:/var/www
         networks:
@@ -26,6 +28,8 @@ services:
             dockerfile: ./Dockerfile
         image: iq_devs_main_supervisor
         container_name: iq_devs_main_supervisor
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
         restart: unless-stopped
         tty: true
         command: bash -c "printenv | sed 's/^\(.*\)$$/export \1/g' > /root/project_env.sh && /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisor.conf"
