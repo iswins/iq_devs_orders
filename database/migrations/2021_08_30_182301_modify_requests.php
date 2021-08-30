@@ -14,7 +14,18 @@ class ModifyRequests extends Migration
     public function up()
     {
         Schema::table('requests', function (Blueprint $table) {
+            $table->dropColumn('amount');
             $table->float('amount', 18, 2);
+        });
+
+
+        Schema::table('payment_schedule', function (Blueprint $table) {
+            $table->dropColumn('loan_body');
+            $table->dropColumn('loan_percent');
+            $table->dropColumn('amount');
+            $table->float('loan_body', 10, 2);
+            $table->float('loan_percent', 10, 2);
+            $table->float('amount', 10, 2);
         });
 
     }
