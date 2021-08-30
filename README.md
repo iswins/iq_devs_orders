@@ -8,6 +8,7 @@
 - запустить команду: ```docker exec -it iq_devs_main_fpm php artisan config:clear```
 - запустить команду: ```docker exec -it iq_devs_main_fpm php artisan migrate```
 - запустить команду: ```docker exec -it iq_devs_main_fpm php artisan db:seed```
+- запустить команды: ```docker-compose down && docker-compose up -d```  
 - в результате сервис должен подняться на порте: 7080
 
 
