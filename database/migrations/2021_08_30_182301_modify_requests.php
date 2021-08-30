@@ -14,7 +14,7 @@ class CreateRequests extends Migration
     public function up()
     {
         Schema::create('requests', function (Blueprint $table) {
-            $table->float('amount', 14, 2);
+            $table->float('amount', 18, 2);
         });
 
     }
