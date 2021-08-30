@@ -27,9 +27,6 @@ class ModifyRequests extends Migration
             $table->dropColumn('loan_body');
             $table->dropColumn('loan_percent');
             $table->dropColumn('amount');
-            $table->float('loan_body', 10, 2);
-            $table->float('loan_percent', 10, 2);
-            $table->float('amount', 10, 2);
         });
 
         Schema::table('payment_schedule', function (Blueprint $table) {
