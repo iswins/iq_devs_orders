@@ -7,6 +7,7 @@
 namespace App\Services;
 
 
+use App\Clients\OrderTelegramClient;
 use App\Models\Request;
 use App\Repositories\StatusRepository;
 
@@ -30,14 +31,10 @@ class StatusPaidService implements StatusServiceInterface
 
     public function handle ()
     {
-        $this->sendTelegramMessage();
-
         $request = $this->getRequest();
         $request->status()->associate(StatusRepository::success());
         $request->save();
-    }
 
-    protected function sendTelegramMessage() {
-
+        (new OrderTelegramClient())->sendOrderInfo($request);
     }
 }

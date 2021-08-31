@@ -7,6 +7,7 @@
 namespace App\Console\Commands;
 
 
+use App\Clients\OrderTelegramClient;
 use App\Jobs\ScoringRequest;
 use App\Jobs\ScoringResult;
 use App\Models\Request;
@@ -32,30 +33,7 @@ class TestCommand extends Command
 
     public function handle()
     {
-        /*
-        $output = $this->getOutput();
-        $inn = rand(111111111, 99999999);
-        $requestId = rand(1111, 99999999);
-        ScoringRequest::dispatch($inn, "300000", '12', $requestId)
-            ->onQueue('scoring_requests');
-
-        print $requestId . "\n";
-        */
-
-        /*
-        $test = new ScoringResult(2, 11);
-        $test->handle();
-        */
-
-        /** @var Request $request */
-        $request = Request::query()
-            ->where('id', '=', '32')
-            ->first();
-
-        $request->rate = 15;
-        $request->save();
-
-        (new StatusApprovedService($request))->handle();
+        (new OrderTelegramClient())->sendMessage("Test message");
     }
 }
 
